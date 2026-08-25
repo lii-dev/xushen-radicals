@@ -1,0 +1,6 @@
+[
+  { "id": 1, "title": "字源广场碑阵", "category": "碑刻", "url": "/images/placeholder-1.jpg", "description": "镌刻 540 部首的露天碑阵核心场地。" },
+  { "id": 2, "title": "说文馆正门", "category": "馆陈", "url": "/images/placeholder-2.jpg", "description": "陈列《说文解字》历代版本的研究场馆。" },
+  { "id": 3, "title": "团队合影", "category": "团队", "url": "/images/placeholder-3.jpg", "description": "团队在字源广场合影留念。" },
+  { "id": 4, "title": "部首研习现场", "category": "现场", "url": "/images/placeholder-4.jpg", "description": "团队于馆内开展部首研习讨论。" }
+]
