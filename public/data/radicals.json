@@ -1,0 +1,12 @@
+[
+  { "id": 1, "character": "一", "pinyin": "yī", "strokes": 1, "category": "一部", "meaning": "数之始也，惟初太极，道立于一。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 2, "character": "丶", "pinyin": "zhǔ", "strokes": 1, "category": "丶部", "meaning": "有所绝止，丶而识之也。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 3, "character": "丿", "pinyin": "piě", "strokes": 1, "category": "丿部", "meaning": "右戾也。象左引之形。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 4, "character": "乙", "pinyin": "yǐ", "strokes": 1, "category": "乙部", "meaning": "象春草木冤曲而出。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 5, "character": "二", "pinyin": "èr", "strokes": 2, "category": "二部", "meaning": "地之数也。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 6, "character": "人", "pinyin": "rén", "strokes": 2, "category": "人部", "meaning": "天地之性最贵者也。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 7, "character": "儿", "pinyin": "ér", "strokes": 2, "category": "儿部", "meaning": "仁人也。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 8, "character": "入", "pinyin": "rù", "strokes": 2, "category": "入部", "meaning": "内也。象从上俱下也。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 9, "character": "八", "pinyin": "bā", "strokes": 2, "category": "八部", "meaning": "别也。象分别相背之形。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" },
+  { "id": 10, "character": "口", "pinyin": "kǒu", "strokes": 3, "category": "口部", "meaning": "人所以言食也。", "evolution": "甲骨文 → 金文 → 小篆 → 隶书 → 楷书" }
+]

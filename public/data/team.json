@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "李慎之", "role": "项目统筹", "avatar": "", "description": "全程规划与对外协调。" },
+  { "id": 2, "name": "王砚清", "role": "文字研究", "avatar": "", "description": "540 部首释义考证。" },
+  { "id": 3, "name": "陈墨白", "role": "影像主创", "avatar": "", "description": "现场拍摄与视频剪辑。" },
+  { "id": 4, "name": "刘承钧", "role": "媒体设计", "avatar": "", "description": "本站视觉与排版。" },
+  { "id": 5, "name": "张述文", "role": "现场记录", "avatar": "", "description": "访谈与文献整理。" },
+  { "id": 6, "name": "周溯源", "role": "学术指导", "avatar": "", "description": "汉字学副教授。" }
+]
