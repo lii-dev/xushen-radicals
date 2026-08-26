@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>页面跳转中...</title>
+    <script>
+      // GitHub Pages 不支持 SPA fallback，将所有 404 重定向回首页
+      // 然后由 React Router 根据 pathname 渲染对应页面
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      // 移除 /xushen-radicals 前缀以避免循环重定向
+      var cleanPath = path.replace(/^\/xushen-radicals/, "");
+      sessionStorage.setItem("spa-redirect", cleanPath);
+      window.location.replace("/xushen-radicals/");
+    </script>
+  </head>
+  <body>
+    <p>页面跳转中，请稍候...</p>
+  </body>
+</html>

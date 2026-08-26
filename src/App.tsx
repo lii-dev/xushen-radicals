@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import Header from "@/components/Header";
@@ -8,6 +8,18 @@ import Background from "@/pages/Background";
 import Radicals from "@/pages/Radicals";
 import Gallery from "@/pages/Gallery";
 import NotFound from "@/pages/NotFound";
+
+function SpaRedirect() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const saved = sessionStorage.getItem("spa-redirect");
+    if (saved) {
+      sessionStorage.removeItem("spa-redirect");
+      navigate(saved, { replace: true });
+    }
+  }, [navigate]);
+  return null;
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +47,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <Router basename="/xushen-radicals">
+      <SpaRedirect />
       <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Header />
