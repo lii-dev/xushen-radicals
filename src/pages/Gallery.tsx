@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Image as ImageIcon, ExternalLink, Play, QrCode } from "lucide-react";
+import { Image as ImageIcon, ExternalLink, QrCode } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
@@ -10,9 +9,6 @@ const BASE = import.meta.env.BASE_URL;
 
 // 部首语音二维码小卡图片
 const RADICAL_IMAGE = `${BASE}images/部首.jpg`;
-
-// 视频封面图（截一张代表性画面，保存至 public/images/video-cover.jpg）
-const VIDEO_COVER = `${BASE}images/video-cover.jpg`;
 
 // 连续介绍视频 0-5 —— 已压缩后置于 public/videos/，点击新标签页在线播放
 const VIDEOS = [
@@ -25,8 +21,6 @@ const VIDEOS = [
 ];
 
 export default function Gallery() {
-  const [coverError, setCoverError] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -89,89 +83,48 @@ export default function Gallery() {
         </motion.div>
       </section>
 
-      {/* 连续介绍视频（封面图 + 外链播放） */}
+      {/* 连续介绍视频 */}
       <section className="border-t border-bronze/20 bg-paper-dark/30 py-20 md:py-28">
         <div className="container">
           <SectionTitle
             index="影"
             title="连续介绍视频"
             subtitle="VIDEO · 0 → 5"
-            description="点击各集按钮，将在新标签页打开奶牛快传链接在线播放，无需下载注册。"
+            description="点击各集按钮，将在新标签页在线播放。"
           />
 
-          <div className="mt-16 grid gap-6 md:grid-cols-12 md:items-start">
-            {/* 视频封面图 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="paper-layer classic-border relative overflow-hidden md:col-span-7"
-            >
-              {coverError ? (
-                <div className="flex aspect-video w-full flex-col items-center justify-center gap-3 bg-ink/5 text-ink-mute">
-                  <ImageIcon size={32} />
-                  <p className="font-serif text-sm tracking-widest">
-                    视频封面 · 待插入
+          <ul className="mt-16 grid gap-3 md:grid-cols-2">
+            {VIDEOS.map((v, i) => (
+              <motion.li
+                key={v.id}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+              >
+                <a
+                  href={v.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "group flex items-center gap-4 p-4 transition-all",
+                    "rounded-sm border border-bronze/30 hover:border-vermilion hover:bg-vermilion/5"
+                  )}
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-vermilion font-serif text-sm text-paper-light">
+                    {v.id}
+                  </span>
+                  <p className="flex-1 font-serif text-sm text-ink group-hover:text-vermilion-dark">
+                    {v.title}
                   </p>
-                  <p className="font-sans text-xs">public/images/video-cover.jpg</p>
-                </div>
-              ) : (
-                <img
-                  src={VIDEO_COVER}
-                  alt="视频封面"
-                  className="aspect-video w-full object-cover"
-                  onError={() => setCoverError(true)}
-                />
-              )}
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-ink/40 text-paper-light backdrop-blur-sm">
-                  <Play size={28} className="ml-1" />
-                </span>
-              </div>
-            </motion.div>
-
-            {/* 各集外链列表 */}
-            <div className="md:col-span-5">
-              <ul className="flex flex-col gap-3">
-                {VIDEOS.map((v, i) => (
-                  <motion.li
-                    key={v.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.06 }}
-                  >
-                    <a
-                      href={v.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "group flex items-center gap-4 p-4 transition-all",
-                        "rounded-sm border border-bronze/30 hover:border-vermilion hover:bg-vermilion/5"
-                      )}
-                    >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-vermilion font-serif text-sm text-paper-light">
-                        {v.id}
-                      </span>
-                      <div className="flex-1">
-                        <p className="font-serif text-sm text-ink group-hover:text-vermilion-dark">
-                          {v.title}
-                        </p>
-                        <p className="font-sans text-xs text-ink-mute">
-                          在线播放（新标签页）
-                        </p>
-                      </div>
-                      <ExternalLink
-                        size={16}
-                        className="text-ink-mute transition-colors group-hover:text-vermilion"
-                      />
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                  <ExternalLink
+                    size={16}
+                    className="text-ink-mute transition-colors group-hover:text-vermilion"
+                  />
+                </a>
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </section>
     </motion.div>
