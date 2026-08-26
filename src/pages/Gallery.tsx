@@ -5,20 +5,23 @@ import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
 
+// GitHub Pages 子路径 base，保证资源路径正确
+const BASE = import.meta.env.BASE_URL;
+
 // 部首语音二维码小卡图片
-const RADICAL_IMAGE = "/images/部首.jpg";
+const RADICAL_IMAGE = `${BASE}images/部首.jpg`;
 
 // 视频封面图（截一张代表性画面，保存至 public/images/video-cover.jpg）
-const VIDEO_COVER = "/images/video-cover.jpg";
+const VIDEO_COVER = `${BASE}images/video-cover.jpg`;
 
-// 连续介绍视频 0-5 —— 将 # 替换为奶牛快传（cowtransfer）公开分享链接
+// 连续介绍视频 0-5 —— 已压缩后置于 public/videos/，点击新标签页在线播放
 const VIDEOS = [
-  { id: "序", title: "字从遇见你", link: "#" },
-  { id: "第一集", title: "部首的奥秘", link: "#" },
-  { id: "第二集", title: "田-农耕文明的编码", link: "#" },
-  { id: "第三集", title: "家-安居与亲情的符号", link: "#" },
-  { id: "第四集", title: "心-情感与思维的字符", link: "#" },
-  { id: "第五集", title: "言-语言、道德与沟通", link: "#" },
+  { id: "序", title: "字从遇见你", src: `${BASE}videos/0.mp4` },
+  { id: "第一集", title: "部首的奥秘", src: `${BASE}videos/1.mp4` },
+  { id: "第二集", title: "田-农耕文明的编码", src: `${BASE}videos/2.mp4` },
+  { id: "第三集", title: "家-安居与亲情的符号", src: `${BASE}videos/3.mp4` },
+  { id: "第四集", title: "心-情感与思维的字符", src: `${BASE}videos/4.mp4` },
+  { id: "第五集", title: "言-语言、道德与沟通", src: `${BASE}videos/5.mp4` },
 ];
 
 export default function Gallery() {
@@ -140,7 +143,7 @@ export default function Gallery() {
                     transition={{ duration: 0.4, delay: i * 0.06 }}
                   >
                     <a
-                      href={v.link}
+                      href={v.src}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(
@@ -156,7 +159,7 @@ export default function Gallery() {
                           {v.title}
                         </p>
                         <p className="font-sans text-xs text-ink-mute">
-                          奶牛快传在线播放
+                          在线播放（新标签页）
                         </p>
                       </div>
                       <ExternalLink
